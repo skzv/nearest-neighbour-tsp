@@ -1,2 +1,3 @@
-# nearest-neighbour-tsp
-Approximate Traveling Salesman Problem using the Nearest Neighbour Heuristic
+# Nearest Neighbour Travelling Salesman Problem
+
+Approximate solution to the Traveling Salesman Problem using the Nearest Neighbour Heuristic
