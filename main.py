@@ -50,7 +50,7 @@ class NearestNeighbourTspSolution:
     # Computes the length of the shortest path that visits all cities once using the nearest neighbour heuristic
     def compute_min_tsp_path_distance(self):
         current_city_index = 1
-        #print(current_city_index)
+        path = [current_city_index]
         self.cities_not_visited.remove(current_city_index)
         total_distance = 0
         while len(self.cities_not_visited) > 0:
@@ -60,16 +60,18 @@ class NearestNeighbourTspSolution:
                 current_city_index)
             self.cities_not_visited.remove(nearest_city_index)
             current_city_index = nearest_city_index
-            #print(current_city_index)
+            path.append(current_city_index)
             total_distance = total_distance + distance_to_next_city
 
-        #print(1)
+        path.append(1)
         total_distance = total_distance + math.sqrt(self.compute_square_l2_distance(current_city_index, 1))
-        return total_distance
+        return path, total_distance
 
 
 if __name__ == '__main__':
     sol = NearestNeighbourTspSolution()
     sol.read_cities_from_file('data.txt')
 
-    print(sol.compute_min_tsp_path_distance())
+    path, distance = sol.compute_min_tsp_path_distance()
+    print(path)
+    print(distance)
